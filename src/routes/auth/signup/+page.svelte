@@ -3,7 +3,7 @@
 	import Label from '$lib/components/ui/Label.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 	import { authClient } from '$lib/auth-client';
-	import { goto } from '$app/navigation';
+	import { goto, invalidate } from '$app/navigation';
 
 	let loading = $state(false);
 	let error = $state('');
@@ -47,7 +47,8 @@
 					password
 				},
 				{
-					onSuccess: () => {
+					onSuccess: async () => {
+						await invalidate('auth:status');
 						goto('/');
 					},
 					onError: (err) => {
