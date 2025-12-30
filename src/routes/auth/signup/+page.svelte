@@ -124,7 +124,7 @@
 		</div>
 
 		{#if error}
-			<p class="pt-2 text-sm text-red-500">{error}</p>
+			<p class="text-sm text-red-500">{error}</p>
 		{/if}
 
 		<div class="pt-2">
