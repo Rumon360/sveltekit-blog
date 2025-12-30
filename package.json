@@ -44,6 +44,7 @@
 		"vite-plugin-devtools-json": "^1.0.0"
 	},
 	"dependencies": {
+		"better-auth": "^1.4.9",
 		"postgres": "^3.4.7"
 	}
 }
