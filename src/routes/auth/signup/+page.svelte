@@ -97,7 +97,13 @@
 
 		<div class="grid gap-2">
 			<Label forId="password">Password</Label>
-			<Input autoComplete="new-password" id="password" name="password" type="password" />
+			<Input
+				autoComplete="new-password"
+				id="password"
+				name="password"
+				type="password"
+				placeHolder="Type your password"
+			/>
 			{#if errors.password}
 				<p class="text-sm text-red-500">{errors.password}</p>
 			{/if}
@@ -105,7 +111,13 @@
 
 		<div class="grid gap-2">
 			<Label forId="password_confirm">Confirm Password</Label>
-			<Input autoComplete="off" id="password_confirm" name="password_confirm" type="password" />
+			<Input
+				autoComplete="off"
+				id="password_confirm"
+				name="password_confirm"
+				type="password"
+				placeHolder="Confirm your password"
+			/>
 			{#if errors.password_confirm}
 				<p class="text-sm text-red-500">{errors.password_confirm}</p>
 			{/if}
