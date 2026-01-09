@@ -29,6 +29,10 @@ export const create_post = form(CreatePostSchema, async ({ title, body }) => {
 		error(401, 'Unauthorized');
 	}
 
+	if (session?.user?.role !== 'admin') {
+		error(401, 'Unauthorized');
+	}
+
 	const normalizedTitle = title.trim();
 	const normalizedBody = body.trim();
 
@@ -61,6 +65,10 @@ export const update_post = form(UpdatePostSchema, async ({ slug, title, body }) 
 	});
 
 	if (!session?.user?.id) {
+		error(401, 'Unauthorized');
+	}
+
+	if (session?.user?.role !== 'admin') {
 		error(401, 'Unauthorized');
 	}
 

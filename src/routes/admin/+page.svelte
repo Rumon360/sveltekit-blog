@@ -22,7 +22,7 @@
 		{#each posts as post (post.id)}
 			<li>
 				<a
-					href={`/admin/post/${post.slug}`}
+					href={`/post/${post.slug}`}
 					class="group block border border-zinc-800 bg-zinc-900/60 p-6 transition
 						hover:border-zinc-700 hover:bg-zinc-900"
 				>

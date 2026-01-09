@@ -15,6 +15,7 @@ export const get_user = query(async () => {
 	return {
 		id: session?.user.id,
 		name: session?.user.name,
-		email: session?.user.email
+		email: session?.user.email,
+		role: session?.user.role
 	};
 });

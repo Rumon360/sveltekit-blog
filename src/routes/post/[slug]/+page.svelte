@@ -2,9 +2,13 @@
 	import { page } from '$app/state';
 	import Button from '$lib/components/ui/Button.svelte';
 	import Label from '$lib/components/ui/Label.svelte';
-	import { get_post_by_id, update_post } from '../../posts.remote';
+	import { get_post_by_id, update_post } from '../../admin/posts.remote';
+
+	import { get_user } from '../../user.remote';
 
 	const post = await get_post_by_id(page.params.slug!);
+
+	const user = $derived(await get_user());
 
 	let isEditing = $state(false);
 </script>
@@ -15,9 +19,11 @@
 			<h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight text-balance">
 				{post.title}
 			</h1>
-			<Button onclick={() => (isEditing = !isEditing)} class="bg-transparent p-0 text-zinc-50">
-				{isEditing ? 'Cancel' : 'Edit'}
-			</Button>
+			{#if user?.role === 'admin'}
+				<Button onclick={() => (isEditing = !isEditing)} class="bg-transparent p-0 text-zinc-50">
+					{isEditing ? 'Cancel' : 'Edit'}
+				</Button>
+			{/if}
 		</div>
 		{#if isEditing}
 			<form {...update_post} class="pt-12">
@@ -54,7 +60,7 @@
 				</div>
 			</form>
 		{:else}
-			<div class="prose max-w-none pt-12 leading-loose">
+			<div class="prose max-w-none pt-8 leading-loose">
 				{@html post.body}
 			</div>
 		{/if}
