@@ -3,7 +3,8 @@
 	import Label from '$lib/components/ui/Label.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 	import { authClient } from '$lib/auth-client';
-	import { goto, invalidate } from '$app/navigation';
+	import { goto } from '$app/navigation';
+	import { get_user } from '../../user.remote';
 
 	let loading = $state(false);
 	let error = $state('');
@@ -48,8 +49,8 @@
 				},
 				{
 					onSuccess: async () => {
-						await invalidate('auth:status');
-						goto('/');
+						await get_user().refresh();
+						await goto('/');
 					},
 					onError: (err) => {
 						error = err?.error?.message ?? 'An error occurred during signup.';
