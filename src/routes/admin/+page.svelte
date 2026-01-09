@@ -9,7 +9,7 @@
 <div class="pt-12">
 	<div class="mb-12 flex w-full flex-col justify-between gap-6 sm:flex-row">
 		<div>
-			<h1 class="text-3xl font-bold tracking-tight">Welcome back</h1>
+			<h1 class="text-2xl font-bold tracking-tight lg:text-3xl">Welcome back</h1>
 			<p class="mt-2 text-zinc-400">Here’s all of the blog posts.</p>
 		</div>
 		<div>
