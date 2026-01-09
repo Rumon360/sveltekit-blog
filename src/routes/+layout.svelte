@@ -3,10 +3,21 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import LogoutButton from '$lib/components/LogoutButton.svelte';
 	import { get_user } from './user.remote.js';
+	import { onNavigate } from '$app/navigation';
 
 	let { children } = $props();
 
 	const user = $derived(await get_user());
+
+	onNavigate((navigate) => {
+		if (!document.startViewTransition) return;
+		return new Promise((resolve) =>
+			document.startViewTransition(async () => {
+				resolve();
+				await navigate.complete;
+			})
+		);
+	});
 </script>
 
 <svelte:head>

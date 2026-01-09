@@ -16,7 +16,10 @@
 {#if post}
 	<div class="pt-6 lg:pt-12">
 		<div class="flex w-full justify-between">
-			<h1 class="scroll-m-20 text-2xl font-extrabold tracking-tight text-balance lg:text-4xl">
+			<h1
+				style:view-transition-name={`heading-${post.slug}`}
+				class="scroll-m-20 text-2xl font-extrabold tracking-tight text-balance lg:text-4xl"
+			>
 				{post.title}
 			</h1>
 			{#if user?.role === 'admin'}

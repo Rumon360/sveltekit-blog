@@ -22,7 +22,10 @@
 				>
 					<div class="flex items-start justify-between gap-4">
 						<div>
-							<h2 class="text-lg font-semibold text-zinc-100 transition group-hover:text-white">
+							<h2
+								style:view-transition-name={`heading-${post.slug}`}
+								class="text-lg font-semibold text-zinc-100 transition group-hover:text-white"
+							>
 								{post.title}
 							</h2>
 							<p class="mt-1 text-sm text-zinc-400">
