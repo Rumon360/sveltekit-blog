@@ -14,12 +14,16 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<main class="container mx-auto w-full px-4 lg:px-0">
-	<nav class="flex h-16 w-full items-center justify-between border-b border-zinc-700">
-		<a href="/" class="inline-block text-2xl font-bold">SvelteKit Blog</a>
-		{#if user}
-			<LogoutButton />
-		{/if}
+<main class="w-full">
+	<nav class="sticky top-0 h-16 w-full border-b border-zinc-700 backdrop-blur-sm">
+		<div class="container mx-auto flex h-full w-full items-center justify-between px-4 lg:px-0">
+			<a href="/" class="inline-block text-xl font-bold lg:text-2xl">SvelteKit Blog</a>
+			{#if user}
+				<LogoutButton />
+			{/if}
+		</div>
 	</nav>
-	{@render children()}
+	<div class="container mx-auto w-full px-4 lg:px-0">
+		{@render children()}
+	</div>
 </main>

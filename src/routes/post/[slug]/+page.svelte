@@ -14,9 +14,9 @@
 </script>
 
 {#if post}
-	<div class="pt-12">
+	<div class="pt-6 lg:pt-12">
 		<div class="flex w-full justify-between">
-			<h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight text-balance">
+			<h1 class="scroll-m-20 text-2xl font-extrabold tracking-tight text-balance lg:text-4xl">
 				{post.title}
 			</h1>
 			{#if user?.role === 'admin'}
@@ -60,7 +60,7 @@
 				</div>
 			</form>
 		{:else}
-			<div class="prose max-w-none pt-8 leading-loose">
+			<div class="prose max-w-none pt-6 leading-loose">
 				{@html post.body}
 			</div>
 		{/if}
